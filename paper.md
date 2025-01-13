@@ -22,10 +22,10 @@ authors:
 affiliations:
  - name: Kitware Inc., United States
    index: 1
-   ror: 00hx57361
+   ror: 02s2acn37 # https://ror.org/02s2acn37
  - name: Atmospheric, Climate, and Earth Sciences Division, Pacific Northwest National Laboratory, United States
    index: 2
-   ror: 00hx57361
+   ror: 05h992307 # https://ror.org/05h992307
 date: 05 January 2025
 bibliography: paper.bib
 
