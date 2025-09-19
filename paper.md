@@ -70,28 +70,9 @@ ParaView `[@Ahrens:2005; @Henderson:2007]` is a powerful open-source data analys
 To provide users with a native desktop experience without requiring complex installation procedures, QuickView employs Tauri `[@Tauri:2024]`, a Rust-based framework that transforms web applications into native desktop applications. This approach eliminates the need for users to separately install ParaView or configure Python environments, as all dependencies are bundled into a single executable. Tauri's efficient architecture results in smaller application sizes and lower memory usage compared to alternative solutions, while maintaining native performance across Windows, macOS, and Linux platforms.
 
 
-# Citations
-
-Citations to entries in paper.bib should be in
-[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
-format.
-
-If you want to cite a software repository URL (e.g. something on GitHub without a preferred
-citation) then you can do it with the example BibTeX entry below for @fidgit.
-
-For a quick reference, the following citation commands can be used:
-- `@author:2001`  ->  "Author et al. (2001)"
-- `[@author:2001]` -> "(Author et al., 2001)"
-- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
-
 # Figures
 
-Figures can be included like this:
 ![Aerosol concentrations simulated by EAMv2. \label{fig:EAMv2}](images/fig_EAMv2_aerosols.png)
-and referenced from text using \autoref{fig:EAMv2}.
-
-Figure sizes can be customized by adding an optional second parameter:
-![Caption for example figure.](figure.png){ width=20% }
 
 # Acknowledgements
 
