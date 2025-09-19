@@ -43,6 +43,8 @@ EAM QuickView 1.0 is an application providing overviews of the geographical dist
 
 EAM, like many other numerical models (i.e., simulation codes) used for climate and weather research and prediction, solves a complex set of differential equations and writes out results for a large number of physical quantities in the form of NetCDF files. After a simulation is completed and before more focused and detailed analyses are performed, it is often useful to conduct a quick inspection of the output files and obtain a first impression of the characteristic values and geographical distributions of the simulated quantities. The tool [ncview](https://cirrus.ucsd.edu/ncview/) developed by [@DavidWPierce:1993] has been used widely in the weather and climate modeling communities for quick and easy, push-button inspections of NetCDF files. The newer tool [ncvis](https://github.com/SEATStandards/ncvis) developed by [@PaulUllrich:2022] is inspired by [ncview](https://cirrus.ucsd.edu/ncview/) but can also handle data on unstructured meshes. 
 
+![Figure 1: Aerosol concentrations simulated by EAMv2.](images/fig_EAMv2_aerosols.png)
+
 The EAM QuickView application presented here has the additional feature of simultaneously visualizing multiple variables in a single viewport. The organization of the different variables in the viewport can be saved as a state file and reloaded when the application is started the next time. The atmosphere modelers' wish for such features has become more prominent in the past years due to the rapid increase of model complexity in terms of the number of equations solved by the numerical models and the number of prognostic and diagnostic variables typically archived in the NetCDF files. For example, to inspect the simulated aerosol life cycles, it may be useful to examine the concentrations of multiple chemical species in various particle size ranges (see, e.g., Figure 1); to obtain an impression of the simulated clouds, it may be useful to inspect the liquid and ice cloud fractions as well as the mass and number concentrations of liquid cloud drops, ice crystals, rain drops and snow flakes in the same viewport, to allow for a quick eye-ball comparison or a visual inspection of potential relationships.
 
 # Overall strategy
@@ -61,18 +63,13 @@ QuickView is built on Kitware's Trame framework [@Kitware:2024:trame] to create 
 
 Trame [@Kitware:2024:trame] enables developers to control application behavior through a comprehensive set of triggers and change listeners on UI elements. By monitoring variable values, developers can drive backend logic effectively. Additionally, Trame provides "widgets" that support integration with various popular visualization tools including Matplotlib, Plotly, VTK, and ParaView, allowing for rich interactive visualizations within a unified interface.
 
-## ParaView Python Plugins
+## ParaView and Python Plugins
 
 ParaView [@Ahrens:2005; @Henderson:2007] is a powerful open-source data analysis and visualization application built primarily in C++. Traditionally, adding new features to ParaView requires modifying C++ source code across multiple files and recompiling the entire application—a time-consuming process that hinders rapid prototyping. However, ParaView's Python plugin system circumvents these limitations by enabling developers to create new readers, filters, and writers entirely in Python, with UI elements defined through decorators. This approach significantly accelerates the development of data processing pipelines. For QuickView, custom NetCDF readers and specialized filters for processing EAM data were implemented as Python plugins, which are automatically imported and loaded by ParaView at application startup.
 
 ## Tauri
 
 To provide users with a native desktop experience without requiring complex installation procedures, QuickView employs Tauri [@Tauri:2024], a Rust-based framework that transforms web applications into native desktop applications. This approach eliminates the need for users to separately install ParaView or configure Python environments, as all dependencies are bundled into a single executable. Tauri's efficient architecture results in smaller application sizes and lower memory usage compared to alternative solutions, while maintaining native performance across Windows, macOS, and Linux platforms.
-
-
-# Figures
-
-![Figure 1: Aerosol concentrations simulated by EAMv2.](images/fig_EAMv2_aerosols.png)
 
 # Acknowledgements
 
