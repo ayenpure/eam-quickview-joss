@@ -57,19 +57,7 @@ Since the current work is focused on facilitating the development of EAM, our ap
 
 # Technical Details
 
-QuickView is built on Kitware's Trame framework [@Kitware:2024:trame] to create a web-based application that leverages ParaView for data visualization and is distributed as a native desktop application using Tauri.
-
-## Trame
-
-Trame [@Kitware:2024:trame] enables developers to control application behavior through a comprehensive set of triggers and change listeners on UI elements. By monitoring variable values, developers can drive backend logic effectively. Additionally, Trame provides "widgets" that support integration with various popular visualization tools including Matplotlib, Plotly, VTK, and ParaView, allowing for rich interactive visualizations within a unified interface.
-
-## ParaView and Python Plugins
-
-ParaView [@Ahrens:2005; @Henderson:2007] is a powerful open-source data analysis and visualization application built primarily in C++. Traditionally, adding new features to ParaView requires modifying C++ source code across multiple files and recompiling the entire application—a time-consuming process that hinders rapid prototyping. However, ParaView's Python plugin system circumvents these limitations by enabling developers to create new readers, filters, and writers entirely in Python, with UI elements defined through decorators. This approach significantly accelerates the development of data processing pipelines. For QuickView, custom NetCDF readers and specialized filters for processing EAM data were implemented as Python plugins, which are automatically imported and loaded by ParaView at application startup.
-
-## Tauri
-
-To provide users with a native desktop experience without requiring complex installation procedures, QuickView employs Tauri [@Tauri:2024], a Rust-based framework that transforms web applications into native desktop applications. This approach eliminates the need for users to separately install ParaView or configure Python environments, as all dependencies are bundled into a single executable. Tauri's efficient architecture results in smaller application sizes and lower memory usage compared to alternative solutions, while maintaining native performance across Windows, macOS, and Linux platforms.
+QuickView is built on Kitware's Trame framework [@Kitware:2024:trame] to create a web-based application that leverages ParaView [@Ahrens:2005; @Henderson:2007] for data visualization and is distributed as a native desktop application using Tauri [@Tauri:2024] via the trame-tauri library [@Kitware:2022:trame-tauri]. Trame enables developers to control application behavior through triggers and change listeners on UI elements while providing widgets that integrate with visualization tools including ParaView. ParaView's Python plugin system allows developers to create readers, filters, and writers entirely in Python without recompiling the C++ application, significantly accelerating development. For QuickView, custom NetCDF readers and specialized filters for processing EAM data were implemented as Python plugins. Tauri transforms the web application into a native desktop application, eliminating the need for users to install ParaView or configure Python environments by bundling all dependencies into a single executable with smaller application sizes and lower memory usage compared to alternatives.
 
 # Acknowledgements
 
