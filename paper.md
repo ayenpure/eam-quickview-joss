@@ -26,10 +26,10 @@ affiliations:
  - name: Kitware Inc., United States
    index: 1
    ror: 02s2acn37 # https://ror.org/02s2acn37
- - name: Atmospheric, Climate, and Earth Sciences Division, Pacific Northwest National Laboratory, United States
+ - name: Earth and Biological Sciences Directorate, Pacific Northwest National Laboratory, United States
    index: 2
    ror: 05h992307 # https://ror.org/05h992307
-date: 05 January 2025
+date: September 22, 2025
 bibliography: paper.bib
 
 # Optional fields if submitting to a AAS journal too, see this blog post:
@@ -46,9 +46,9 @@ EAM QuickView is a visualization application (app) providing overviews of the ge
 
 EAM, like many other simulation codes used in Earth system sciences, solves a complex set of equations and writes out results for a large number of physical quantities in the form of NetCDF files. After a simulation is completed and before more focused and detailed analyses are performed, it is often useful to obtain a first impression of the characteristic values of the simulated quantities and their geographical distributions. The tool [ncview](https://cirrus.ucsd.edu/ncview/) developed by [@DavidWPierce:1993] has been used widely in Earth system modeling communities for quick and easy, push-button inspections of NetCDF files. The newer tool [ncvis](https://github.com/SEATStandards/ncvis) developed by [@PaulUllrich:2022] is inspired by [ncview](https://cirrus.ucsd.edu/ncview/) but can also handle data on unstructured meshes.
 
-![Figure 1: Aerosol concentrations simulated by EAMv2.](images/fig_EAMv2_aerosols.png)
-
 Compared to ncview and ncvis, the app presented here has the additional feature of simultaneously presenting multiple variables in a single viewport. The arrangement of the different variables in the viewport can be saved as a state file and reloaded into the app at a later time. The atmosphere modelers' wish for such features has become more prominent in the past years due to the rapid increase of model complexity in terms of the number of equations solved by the numerical models and the number of variables typically archived in the NetCDF files. For example, to inspect the simulated aerosol life cycles, it may be useful to examine the concentrations of multiple chemical components in different particle size ranges (see, e.g., Figure 1).
+
+![Figure 1: Aerosol concentrations simulated by EAMv2.](images/fig_EAMv2_aerosols.png)
 
 # Overall strategy
 
